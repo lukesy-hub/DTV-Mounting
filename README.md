@@ -1,7 +1,8 @@
+
+
+
 DTV Mounting — Premium Website + CRM Integration
-
 Project Overview
-
 This project is a complete redesign of the DTV Mounting website into a premium, cinematic, highly animated, conversion-focused website.
 
 Target quality: $5,000–$10,000+ custom agency-built website.
@@ -45,7 +46,6 @@ CRM-ready
 Future-proof
 
 1. Brand
-
 Business: DTV Mounting
 
 Official Website: https://dtvmountingtx.com/
@@ -55,7 +55,6 @@ Official Logo: https://dtvmountingtx.com/wp-content/uploads/2024/02/DTVHeaderLog
 Use the official logo as the source of truth.
 
 Logo Rules
-
 Do not redesign the logo.
 
 Do not modify the logo.
@@ -67,7 +66,6 @@ Use the official logo throughout the website.
 Build the site's color system around the logo.
 
 2. Brand Color System
-
 Derive the design system from the logo.
 
 Primary colors:
@@ -89,7 +87,6 @@ WHITE
 ROYAL BLUE
 +
 SUBTLE METALLIC SILVER
-
 Blue should be an accent rather than covering the entire website.
 
 Black should provide premium depth.
@@ -107,9 +104,7 @@ Use centralized design tokens such as:
 --color-background
 --color-muted
 --color-border
-
 3. Design Direction
-
 Combine:
 
 Premium AV Company
@@ -121,7 +116,6 @@ Modern Architecture
 Cinematic Film
 +
 High-End Creative Agency
-
 The website should feel:
 
 Expensive
@@ -145,31 +139,24 @@ These people professionally install premium TVs and home entertainment systems.
 Take inspiration from the quality level of premium technology brands and creative agencies, but do not copy their designs.
 
 4. Core Website Architecture
-
 The website must have:
 
 One shared design system
-
 Across the entire site.
 
 Unique page-specific heroes
-
 Every major page gets its own hero.
 
 One shared floating navbar
-
 Every page uses the same reusable navbar.
 
 One shared global footer
-
 Every page uses the same reusable footer.
 
 One shared animation language
-
 Animations remain consistent across the site while each page can have unique choreography.
 
 5. Floating Navbar
-
 The navbar must be a floating navbar, not a traditional full-width header.
 
 It should:
@@ -193,7 +180,6 @@ Feel premium
 Desktop structure:
 
 [DTV LOGO]     Services   Our Work   Locations   About     Call   [GET FREE QUOTE]
-
 At the top:
 
 Transparent/semi-transparent
@@ -227,7 +213,6 @@ CTA appears last
 The same reusable navbar component must be used across every page.
 
 6. Unique Hero Requirement
-
 Every major page MUST have its own unique hero section.
 
 Do not reuse the exact same hero on every page.
@@ -249,69 +234,53 @@ Page-specific storytelling
 However, all heroes must still belong to the same DTV Mounting design system.
 
 7. Hero Videos
-
 Every major page should have a relevant cinematic business video.
 
 Home
-
 TV installation / luxury home entertainment.
 
 TV Mounting
-
 Technician mounting a large flat-screen TV.
 
 Fireplace TV Mounting
-
 TV being professionally installed above a fireplace.
 
 TV Wall Installation
-
 Multi-screen / sports wall / entertainment wall.
 
 Hide TV Wire
-
 Cable routing / concealed wire installation.
 
 Soundbar Installation
-
 Soundbar installation below a mounted TV.
 
 Gaming
-
 Premium gaming setup with TV, console, and lighting.
 
 Outdoor
-
 Outdoor TV installation, only if verified as an offered service.
 
 Our Work
-
 Cinematic montage of real DTV installations.
 
 Locations
-
 Texas homes / professional installation / city environments.
 
 Quote
-
 Technician arriving, measuring a wall, or preparing an installation.
 
 About / Trust
-
 Professional technician working on a premium installation.
 
 FAQ
-
 Subtle premium home-entertainment footage.
 
 Contact
-
 Technician / customer / installation environment.
 
 Do not invent services just to create additional pages.
 
 8. Hero Video Requirements
-
 Hero videos should generally be:
 
 Muted
@@ -363,7 +332,6 @@ Do not use unnecessarily huge 4K videos.
 For slower connections, use the poster image as fallback.
 
 9. Home Page Structure
-
 01 Floating Navbar
 02 Full-Screen Cinematic Video Hero
 03 Trust / Statistics
@@ -378,9 +346,7 @@ For slower connections, use the poster image as fallback.
 12 Texas Locations
 13 Free Quote CTA
 14 Global Footer
-
 10. Home Hero
-
 Suggested positioning:
 
 Professional TV Installation.
@@ -415,25 +381,20 @@ Video scale
 Subtle scroll indicator
 
 11. Trust / Statistics
-
 Use verified claims.
 
 Known claims:
 
 15,000+
-
 TVs Installed
 
 20+
-
 Years Experience
 
 10-Year
-
 No-Fall Warranty
 
 5-Star
-
 Customer Rated
 
 Only use claims that are verified.
@@ -441,7 +402,6 @@ Only use claims that are verified.
 Use subtle count-up animations.
 
 12. Why DTV
-
 Create:
 
 Why Texas Homeowners Choose DTV
@@ -449,19 +409,15 @@ Why Texas Homeowners Choose DTV
 Suggested categories:
 
 EXPERIENCE
-
 20+ years
 
 PROTECTION
-
 10-year no-fall warranty
 
 SPEED
-
 Same-day service
 
 CONFIDENCE
-
 100% satisfaction guarantee
 
 Cards should have:
@@ -487,7 +443,6 @@ Subtle glow
 Icon animation
 
 13. Services
-
 Current services:
 
 Flat TV Mounting
@@ -515,7 +470,6 @@ TV Wall Installation
 Do not invent additional services.
 
 14. Service Cards
-
 Each card can contain:
 
 Image
@@ -549,7 +503,6 @@ Smooth page transition
 Navigate to relevant page
 
 15. Fireplace Feature
-
 Suggested headline:
 
 Make the Fireplace the Centerpiece.
@@ -581,7 +534,6 @@ Mask reveal
 Subtle image scaling
 
 16. TV Wall Feature
-
 Suggested headline:
 
 One Wall.
@@ -605,7 +557,6 @@ Gaming setups
 Commercial applications
 
 17. Before / After
-
 Create an interactive before/after slider.
 
 Must support:
@@ -623,7 +574,6 @@ Blue indicator
 Use actual installation imagery.
 
 18. Our Work / Gallery
-
 Create a premium editorial gallery.
 
 Categories:
@@ -667,7 +617,6 @@ Use real DTV imagery whenever available.
 Do not fabricate portfolio projects.
 
 19. Scroll Storytelling
-
 Implement at least one signature GSAP ScrollTrigger section.
 
 Example:
@@ -681,7 +630,6 @@ Wall
 Wire Management
 ↓
 Finished Installation
-
 As the user scrolls:
 
 Content changes
@@ -695,7 +643,6 @@ Progress indicator moves
 Use pinned sections and horizontal movement where appropriate.
 
 20. Process
-
 Headline:
 
 From Quote to Perfect Setup
@@ -721,7 +668,6 @@ Mobile:
 Vertical timeline
 
 21. Reviews
-
 Use real customer reviews from the existing website.
 
 Current website displays:
@@ -743,7 +689,6 @@ Customer experiences
 Use a premium testimonial layout.
 
 22. Locations
-
 Primary Texas markets:
 
 Dallas
@@ -757,7 +702,6 @@ San Antonio
 Use verified service areas.
 
 Dallas
-
 McKinney
 
 Little Elm
@@ -789,7 +733,6 @@ Irving
 North Dallas
 
 Austin
-
 Downtown Austin
 
 North Austin
@@ -821,7 +764,6 @@ Montopolis
 Dove Springs
 
 Houston
-
 Humble
 
 Katy
@@ -847,7 +789,6 @@ Baytown
 Pearland
 
 San Antonio
-
 Alamo Heights
 
 Boerne
@@ -881,7 +822,6 @@ Stockdale
 Do not silently correct questionable source values.
 
 23. Quote Page
-
 Quote page must have its own unique cinematic video hero.
 
 Suggested headline:
@@ -895,7 +835,6 @@ Tell us what you're installing and we'll help you get started.
 Then display the premium quote form.
 
 24. Existing Form — CRITICAL
-
 The current DTV Mounting website already has a quote/query form.
 
 The new form MUST preserve the information collected by the existing form.
@@ -941,7 +880,6 @@ Do not guess.
 Do not remove business-critical fields.
 
 25. Form Mapping
-
 Create a mapping:
 
 EXISTING WEBSITE FIELD
@@ -949,7 +887,6 @@ EXISTING WEBSITE FIELD
 NEW WEBSITE FIELD
         ↓
 CRM FIELD
-
 Example:
 
 Customer Name
@@ -957,7 +894,6 @@ Customer Name
 Customer Name
         ↓
 customer.name
-
 Create a centralized form schema.
 
 Each field should define where appropriate:
@@ -979,37 +915,29 @@ CRM mapping
 conditional logic
 
 26. Quote Form UX
-
 Group the existing fields logically.
 
 Potential UI grouping:
 
 Step 1
-
 Service
 
 Step 2
-
 TV / Installation Details
 
 Step 3
-
 Location / Wall Details
 
 Step 4
-
 Additional Services
 
 Step 5
-
 Scheduling
 
 Step 6
-
 Customer Information
 
 Step 7
-
 Review
 
 These are UI groupings only.
@@ -1017,7 +945,6 @@ These are UI groupings only.
 The actual fields must come from the existing form.
 
 27. Form Animations
-
 Use:
 
 Step transitions
@@ -1041,7 +968,6 @@ Tactile button feedback
 Do not make the form frustrating or unnecessarily slow.
 
 28. CRM Integration
-
 Every website query/quote submission must go to the CRM.
 
 Customer flow:
@@ -1061,11 +987,9 @@ CRM VALIDATION
 NEW LEAD / QUERY
 ↓
 CRM
-
 The frontend must not merely store submissions in browser state.
 
 29. Existing CRM Inspection
-
 If a CRM project/backend already exists:
 
 Inspect it before implementing integration.
@@ -1107,7 +1031,6 @@ Do not create a second database.
 Do not duplicate customer/lead models if they already exist.
 
 30. Lead Creation
-
 A website submission should become a structured CRM lead/query.
 
 Conceptual example:
@@ -1135,7 +1058,6 @@ Conceptual example:
     "userAgent": ""
   }
 }
-
 This is an architectural example only.
 
 Use the actual CRM schema when available.
@@ -1143,13 +1065,11 @@ Use the actual CRM schema when available.
 Do not invent an API endpoint if the CRM already has one.
 
 31. Structured CRM Data
-
 Do not send one large text blob.
 
 Bad:
 
 Customer wants a 65 inch TV mounted above fireplace with wires hidden.
-
 Good:
 
 {
@@ -1161,7 +1081,6 @@ Good:
     "Hide TV Wire"
   ]
 }
-
 Structured data enables:
 
 Filtering
@@ -1179,7 +1098,6 @@ Quoting
 Scheduling
 
 32. CRM Service Layer
-
 Keep CRM logic outside UI components.
 
 Suggested:
@@ -1188,9 +1106,7 @@ src/
   services/
     crm.ts
     leadService.ts
-
 crm.ts
-
 API communication
 
 CRM request handling
@@ -1198,7 +1114,6 @@ CRM request handling
 API errors
 
 leadService.ts
-
 Receive form state
 
 Validate/normalize
@@ -1214,21 +1129,17 @@ Return normalized result
 Example:
 
 submitWebsiteLead(formData)
-
 33. API Configuration
-
 Do not hardcode production API URLs everywhere.
 
 Use environment configuration:
 
 VITE_CRM_API_URL=
-
 Never expose private API secrets in frontend code.
 
 If authentication requires secrets, those operations must happen server-side.
 
 34. Duplicate Submission Protection
-
 On submit:
 
 Disable submit button.
@@ -1248,7 +1159,6 @@ Show success only after CRM confirms creation.
 Never show a false success message.
 
 35. CRM Error Handling
-
 If CRM/API fails:
 
 Do not pretend the lead was created.
@@ -1268,7 +1178,6 @@ Keep entered information where possible.
 Never expose technical errors to customers.
 
 36. Success State
-
 After successful CRM submission:
 
 Show a premium success animation.
@@ -1280,11 +1189,9 @@ CHECKMARK
 Quote Request Received
 ↓
 We've received your request.
-
 Do not promise a response time unless verified.
 
 37. Form Persistence
-
 Where appropriate:
 
 Preserve non-sensitive form progress locally.
@@ -1294,7 +1201,6 @@ Clear temporary state after successful submission.
 Do not unnecessarily store sensitive information.
 
 38. Spam Protection
-
 Prepare the endpoint for:
 
 Honeypot
@@ -1308,7 +1214,6 @@ Backend validation
 Do not create unnecessary customer friction.
 
 39. Tracking
-
 Where appropriate capture:
 
 utm_source
@@ -1319,15 +1224,12 @@ utm_content
 landingPage
 referrer
 source
-
 Source should identify:
 
 WEBSITE
-
 Do not collect unnecessary personal information.
 
 40. Future CRM Workflow
-
 Design around:
 
 LEAD
@@ -1341,11 +1243,9 @@ APPOINTMENT
 JOB
 ↓
 COMPLETION
-
 The website's primary CRM responsibility is creating the initial lead/query.
 
 41. Animation System
-
 Preferred technologies:
 
 GSAP
@@ -1357,7 +1257,6 @@ Lenis
 Framer Motion
 
 GSAP
-
 Use for:
 
 Scroll storytelling
@@ -1371,7 +1270,6 @@ Hero timelines
 Complex animation choreography
 
 Framer Motion
-
 Use for:
 
 Menus
@@ -1385,7 +1283,6 @@ Page transitions
 Simple state animations
 
 Lenis
-
 Use for:
 
 Smooth scrolling
@@ -1393,7 +1290,6 @@ Smooth scrolling
 Do not duplicate animation responsibilities unnecessarily.
 
 42. Animation Language
-
 Use sophisticated motion such as:
 
 Hero video reveal
@@ -1445,7 +1341,6 @@ Do not put every effect into one section.
 Distribute effects intelligently.
 
 43. Custom Cursor
-
 Desktop only.
 
 States:
@@ -1454,7 +1349,6 @@ NORMAL
 INTERACTIVE
 VIEW
 DRAG
-
 Disable on:
 
 Mobile
@@ -1466,7 +1360,6 @@ Reduced-motion preference
 Keep it subtle.
 
 44. Global Footer
-
 Every page MUST use the SAME footer.
 
 Include:
@@ -1495,13 +1388,11 @@ Address:
 
 15150 Preston Road, STE 300
 Dallas, TX 75248
-
 Phones:
 
 Dallas: (469) 436-5600
 Houston: (346) 998-4437
 Austin / San Antonio: (737) 377-2980
-
 Social:
 
 Facebook
@@ -1513,7 +1404,6 @@ TikTok
 YouTube
 
 45. Footer Animation
-
 Use:
 
 CTA reveal
@@ -1531,7 +1421,6 @@ Hover interactions
 The footer should feel like the final cinematic scene.
 
 46. Responsive Design
-
 Must work exceptionally at:
 
 1440px
@@ -1541,7 +1430,6 @@ Must work exceptionally at:
 480px
 390px
 375px
-
 Do not simply shrink desktop.
 
 Mobile requires intentional layouts.
@@ -1565,7 +1453,6 @@ No hover-only interactions
 No custom cursor
 
 47. Performance
-
 Target:
 
 LCP < 2.5 seconds
@@ -1591,11 +1478,9 @@ GPU-friendly motion
 Avoid layout-heavy animation.
 
 48. Reduced Motion
-
 Respect:
 
 prefers-reduced-motion
-
 When enabled:
 
 Disable heavy parallax
@@ -1609,7 +1494,6 @@ Reduce scroll animation
 Keep content accessible
 
 49. SEO
-
 Do not sacrifice SEO for animations.
 
 Use:
@@ -1633,7 +1517,6 @@ Crawlable content
 Important business information must not be hidden entirely behind JavaScript animation.
 
 50. Accessibility
-
 Support:
 
 Keyboard navigation
@@ -1657,7 +1540,6 @@ Sufficient contrast
 Reduced motion
 
 51. Suggested Project Architecture
-
 src/
   components/
     FloatingNavbar/
@@ -1716,36 +1598,28 @@ src/
     useLenis.ts
     useReducedMotion.ts
     useMediaQuery.ts
-
 Keep business data separate from UI.
 
 Keep CRM/API logic separate from UI.
 
 52. Business Information
-
 Business
-
 DTV Mounting
 
 Dallas Address
-
 15150 Preston Road, STE 300
 Dallas, TX 75248
 
 Dallas Phone
-
 (469) 436-5600
 
 Houston Phone
-
 (346) 998-4437
 
 Austin / San Antonio Phone
-
 (737) 377-2980
 
 Services
-
 Flat TV Mounting
 
 Same Day TV Mounting
@@ -1767,7 +1641,6 @@ Fireplace TV Mounting
 TV Wall Installation
 
 Published Claims
-
 15,000+ TVs installed
 
 20+ years experience
@@ -1785,7 +1658,6 @@ Price match guarantee
 Fully licensed and insured
 
 Payment Methods
-
 Buy Now Pay Later
 
 Debit/Credit
@@ -1801,7 +1673,6 @@ Afterpay
 Do not invent financing terms.
 
 53. Business Data Accuracy
-
 Never fabricate:
 
 Reviews
@@ -1829,11 +1700,9 @@ Financing terms
 If information is unknown:
 
 NEEDS VERIFICATION
-
 Do not silently make assumptions.
 
 54. Existing Data Flags
-
 Existing website content contains information that should be verified.
 
 Examples:
@@ -1853,7 +1722,6 @@ Potential spelling issues:
 Do not silently change source data.
 
 55. Things to Avoid
-
 Do NOT create:
 
 Generic WordPress-looking design
@@ -1899,7 +1767,6 @@ Meaningless giant text
 Template-looking sections
 
 56. The "Expensive Website" Rule
-
 For every section ask:
 
 Why does this exist?
@@ -1921,7 +1788,6 @@ If an element does not contribute to the experience, remove it.
 Premium design requires restraint.
 
 57. Signature DTV Visual Language
-
 The final website should establish:
 
 CINEMATIC VIDEO
@@ -1945,11 +1811,9 @@ SMOOTH SCROLL
 SCROLL STORYTELLING
 +
 PREMIUM FLOATING UI
-
 The site should feel like a digital experience rather than disconnected sections.
 
 58. Customer Journey
-
 OPEN WEBSITE
 ↓
 CINEMATIC VIDEO
@@ -1973,7 +1837,6 @@ FREE QUOTE
 SUCCESS
 ↓
 PREMIUM FOOTER
-
 The user should naturally move toward:
 
 GET FREE QUOTE
@@ -1981,7 +1844,6 @@ GET FREE QUOTE
 without feeling aggressively sold to.
 
 59. Execution Process
-
 Before coding:
 
 Inspect existing project.
@@ -2075,9 +1937,7 @@ Fix all errors.
 Perform final visual polish.
 
 60. Final QA Checklist
-
 Design
-
 Looks like a $5,000+ custom website
 
 Premium black/blue/silver identity
@@ -2091,7 +1951,6 @@ Layouts feel custom
 No generic template appearance
 
 Navigation
-
 Floating navbar
 
 Same navbar across every page
@@ -2103,7 +1962,6 @@ Mobile menu animation
 Active route states
 
 Heroes
-
 Every major page has a unique hero
 
 Every major page has relevant business video
@@ -2117,7 +1975,6 @@ Videos are optimized
 Poster fallbacks work
 
 Footer
-
 Same footer across every page
 
 Contact details verified
@@ -2127,7 +1984,6 @@ Social links work
 Footer animation works
 
 Forms
-
 Existing form inspected
 
 Every existing field preserved
@@ -2143,7 +1999,6 @@ Validation implemented
 Premium UI implemented
 
 CRM
-
 Website form connects to CRM
 
 Lead is created in CRM
@@ -2165,7 +2020,6 @@ Success state only appears after CRM confirmation
 API secrets are not exposed
 
 Performance
-
 LCP target considered
 
 Images optimized
@@ -2179,7 +2033,6 @@ No unnecessary dependencies
 No layout-heavy animations
 
 Accessibility
-
 Keyboard navigation
 
 Focus states
@@ -2195,7 +2048,6 @@ Reduced motion support
 Contrast checked
 
 Code
-
 No TypeScript errors
 
 No console errors
@@ -2213,9 +2065,7 @@ Business data separated
 CRM logic separated from UI
 
 61. Final Product Standard
-
 Customer Side
-
 PREMIUM
 +
 CINEMATIC
@@ -2229,9 +2079,7 @@ TRUSTWORTHY
 HIGHLY ANIMATED
 +
 FAST
-
 Business Side
-
 STRUCTURED
 +
 RELIABLE
@@ -2241,11 +2089,9 @@ SECURE
 CRM-READY
 +
 FUTURE-PROOF
-
 The website should look expensive while remaining fast and usable.
 
 62. Non-Negotiable Requirements
-
 Every major page gets its own hero.
 
 Every major hero uses relevant business-related video.
@@ -2287,7 +2133,6 @@ Performance must remain a priority.
 The final result must feel genuinely custom and expensive.
 
 63. Final Instruction to Developer / AI
-
 Do not merely explain what should be built.
 
 Actually inspect the existing project and implement the redesign.
@@ -2327,7 +2172,6 @@ SEO
 ACCESSIBILITY
         +
 PERFORMANCE
-
 Build it.
 
 Test it.
