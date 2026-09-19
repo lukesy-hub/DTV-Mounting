@@ -38,7 +38,9 @@ export function LocationMap({ location }: { location: Location }) {
         });
     });
 
-    return () => map.remove();
+    return () => {
+      map.remove();
+    };
   }, [location]);
 
   return <div ref={mapElement} className="dtv-map h-full min-h-[460px] w-full" aria-label={`${location.city} completed installation map`} />;
