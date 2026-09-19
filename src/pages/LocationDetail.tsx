@@ -1,19 +1,73 @@
-import type { Location } from '../data/locations'
-import mainHeroVideo from '../assets/main_hero.mp4'
+import { Navigate, useParams } from "react-router-dom";
+import { VideoHero } from "@/components/Hero/VideoHero";
+import { QuoteCTA } from "@/components/QuoteCTA/QuoteCTA";
+import { getLocationBySlug } from "@/data/locations";
+import { business } from "@/data/business";
+import { heroContent } from "@/data/heroContent";
+import { LocationMap } from "@/components/Locations/LocationMap";
 
-type Props = { location: Location; onQuote: () => void; onBack: () => void }
+export function LocationDetail() {
+  const { slug } = useParams();
+  const location = getLocationBySlug(slug ?? "");
 
-export default function LocationDetail({ location, onQuote, onBack }: Props) {
+  if (!location) return <Navigate to="/locations" replace />;
+
+  const hero = heroContent.locations;
+
   return (
     <>
-      <section className="location-detail-hero">
-        <video className="hero-video" autoPlay muted loop playsInline poster={location.image}><source src={mainHeroVideo} type="video/mp4" /></video><div className="location-detail-overlay" /><div><button className="back-link" onClick={onBack}>← All locations</button><p className="eyebrow">{location.region}</p><h1>DTV Mounting<br /><em>{location.name}.</em></h1><p>{location.briefing}</p><button className="button button--light" onClick={onQuote}>Request a local quote <span aria-hidden="true">↗</span></button></div>
+      <VideoHero
+        {...hero}
+        eyebrow={`${location.city} · ${location.state}`}
+        headline={["TV Installation", `in ${location.city}.`]}
+        support={`Professional mounting, hidden wires, and complete entertainment setups for homes and businesses across ${location.city}.`}
+        showScrollHint={false}
+      />
+
+      <section className="container-edge py-24">
+        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span className="eyebrow">Where We Work</span>
+            <h2 className="mt-3 font-display-serif text-[clamp(2rem,3.6vw,3rem)] text-paper">
+              Completed work around {location.city}.
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {location.phone ? (
+              <a
+                href={`tel:${location.phone.replace(/[^\d]/g, "")}`}
+                className="inline-flex items-center rounded-full border border-border-strong px-5 py-3 text-sm text-paper hover:border-silver"
+              >
+                Call {location.phone}
+              </a>
+            ) : null}
+            <a href="/quote" className="inline-flex items-center rounded-full bg-blue px-5 py-3 text-sm font-medium text-white hover:bg-blue-deep">
+              Request a quote
+            </a>
+          </div>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <div className="relative min-h-[460px] overflow-hidden rounded-lg border border-border bg-surface">
+            <LocationMap location={location} />
+            <div className="pointer-events-none absolute bottom-4 left-4 rounded-full border border-border bg-[var(--glass-bg-strong)] px-3 py-2 text-xs text-paper backdrop-blur-md">
+              DTV Mounting completed installs
+            </div>
+          </div>
+
+          <aside className="glass-surface rounded-lg p-7">
+            <span className="eyebrow">{location.city}</span>
+            <h3 className="mt-3 font-display-serif text-3xl text-paper">Local, careful, ready.</h3>
+            <p className="mt-4 text-sm leading-relaxed text-muted">
+              From a single TV mount to a full entertainment wall, our licensed and insured crew brings the same finish standard to every local job.
+            </p>
+            {location.note ? <p className="mt-6 border-t border-border pt-5 text-xs text-muted">{location.note}</p> : null}
+            <p className="mt-5 text-xs text-muted">{business.claims.warranty}</p>
+          </aside>
+        </div>
       </section>
-      <section className="section location-detail-content">
-        <div><p className="eyebrow">Your local team</p><h2>Close by.<br /><em>Made personal.</em></h2>{location.phone && <a className="location-phone" href={`tel:${location.phone.replace(/\D/g, '')}`}>{location.phone} ↗</a>}{location.address && <p className="location-address">{location.address}</p>}</div>
-        <div className="location-map-wrap"><iframe title={`${location.name} service area map`} loading="lazy" src={`https://www.google.com/maps?q=${encodeURIComponent(location.mapQuery)}&output=embed`} /><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.mapQuery)}`} target="_blank" rel="noreferrer">Open in Google Maps ↗</a></div>
-      </section>
-      <section className="section location-detail-services"><div><p className="eyebrow">Popular in {location.name}</p><h2>Built around<br /><em>your room.</em></h2></div><div className="location-service-list">{location.services.map((service, index) => <button key={service} onClick={onQuote}><span>0{index + 1}</span><strong>{service}</strong><span>↗</span></button>)}</div></section>
+
+      <QuoteCTA />
     </>
-  )
+  );
 }

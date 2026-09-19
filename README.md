@@ -1,244 +1,86 @@
-<div align="center">
+# DTV Mounting — Premium Redesign (React + TypeScript)
 
-# DTV Mounting
+A cinematic, motion-driven rebuild of the DTV Mounting site, built to the
+brief: one global design system (floating navbar, global footer, shared
+type/color tokens) with a unique cinematic hero per page.
 
-### Professional installation. Premium presentation.
+## Stack
 
-Premium TV mounting and home entertainment experiences for modern homes.
+- **React 18 + TypeScript + Vite**
+- **Tailwind CSS** — utility layer, wired to the design tokens in `src/styles/tokens.css`
+- **Framer Motion** — component transitions, the mobile menu, hover/reveal choreography
+- **GSAP + ScrollTrigger** — the pinned horizontal Process track and the Installation Journey scroll-story
+- **Lenis** — smooth scrolling, synced to GSAP's ticker so ScrollTrigger tracks it correctly
+- Fonts: **Space Grotesk** (structural/UI) + **Fraunces** (display serif, used only on headlines — the neo‑classical/editorial voice)
 
-<p>
-  <a href="https://dtvmountingtx.com/">Live Website</a>
-  ·
-  <a href="https://github.com/lukesy-hub/DTV-Mounting">GitHub Repository</a>
-</p>
-
-</div>
-
----
-
-## About
-
-DTV Mounting is a premium React frontend for a professional TV installation company. It transforms a traditional local-service website into a polished digital experience built around cinematic media, clear service discovery, local coverage, trust signals, and a structured quote journey.
-
-## Highlights
-
-- Local video-led homepage hero using `src/assets/main_hero.mp4`
-- Individual service pages with service-specific imagery
-- Individual location pages with local briefings and Google Maps embeds
-- Compact Services and Locations navbar dropdowns
-- Clean pathname URLs for service and location pages
-- Responsive mobile navigation
-- Project gallery with category filters and lightbox viewing
-- Before-and-after comparison slider
-- FAQ accordion
-- Google review section
-- Payment option cards
-- Multi-step quote form with draft persistence
-- GSAP and ScrollTrigger animations
-- Reduced-motion support
-- CRM-ready lead submission boundary
-
-## Services
-
-The current eight-service catalog is:
-
-1. Flat TV Mounting
-2. Same Day TV Mounting
-3. Hide TV Wire
-4. Soundbar Installation
-5. TV Dismounting
-6. TV Shelf Mounting
-7. Gaming Console Mounting
-8. LED Strip Light Installation
-
-Service data is centralized in [`src/data/services.ts`](./src/data/services.ts), keeping homepage cards, dropdowns, routes, and detail pages synchronized.
-
-## Locations
-
-Dedicated location pages are available for:
-
-- Austin
-- Houston
-- San Antonio
-- Dallas
-- Florida
-- Atlanta
-
-Location data is centralized in [`src/data/locations.ts`](./src/data/locations.ts).
-
-## Routes
-
-```text
-/                                      Homepage
-/services                              Services overview
-/services/:service-slug                Individual service page
-/locations                             Locations overview
-/locations/:location-slug              Individual location page
-/work                                  Project gallery
-/about                                 About page
-/faq                                  FAQ page
-/contact                              Contact page
-```
-
-Examples:
-
-```text
-/services/soundbar-installation
-/services/flat-tv-mounting
-/locations/austin
-/locations/dallas
-```
-
-Legacy hash links are still understood for compatibility, but new navigation uses clean pathname URLs.
-
-## Technology
-
-| Layer | Technology |
-| --- | --- |
-| UI | React 19 |
-| Language | TypeScript |
-| Build tool | Vite |
-| Animation | GSAP and ScrollTrigger |
-| Styling | Custom CSS |
-| Linting | Oxlint |
-| Lead integration | CRM-ready frontend service layer |
-
-## Project structure
-
-```text
-src/
-├── App.tsx                  # App shell, routing, homepage, navbar, footer, quote modal
-├── App.css                  # Design system and responsive styling
-├── index.css                # Global styles and typography
-├── assets/
-│   └── main_hero.mp4        # Homepage hero video
-├── data/
-│   ├── formSchema.ts        # Quote fields and initial form data
-│   ├── locations.ts         # Location catalog
-│   └── services.ts          # Service catalog
-├── pages/
-│   ├── ServiceDetail.tsx    # Shared service detail template
-│   ├── LocationDetail.tsx   # Shared location detail template
-│   ├── services/            # Service page entry files
-│   └── locations/           # Location page entry files
-└── services/
-    └── leadService.ts       # CRM-ready submission boundary
-```
-
-## Local development
-
-### Requirements
-
-- Node.js 18+
-- npm
-
-### Install and run
+## Run it
 
 ```bash
 npm install
 npm run dev
 ```
 
-The Vite development server normally runs at:
+This sandbox has no network access, so dependencies were **not** installed
+here — this is the full authored source. `npm install` will pull everything
+listed in `package.json`.
 
-```text
-http://localhost:5173
-```
+## What's built
 
-### Scripts
+- **Design system**: `src/styles/tokens.css` — every color, radius, and
+  motion easing as a CSS variable, plus a light theme override
+  (`[data-theme="light"]`, toggled from the navbar). Liquid/reeded glass
+  surfaces (`.glass-surface`, `.reeded-glass`), grain overlay, and a
+  chromatic-edge utility live here too.
+- **FloatingNavbar** (`src/components/Navbar`) — floating glass pill,
+  transparent-to-solid on scroll, full-screen animated mobile menu, theme
+  toggle. Shared by every route.
+- **VideoHero** (`src/components/Hero/VideoHero.tsx`) — the one reusable
+  hero component every page uses. It takes `videoSrc`/`poster` for real
+  footage; until footage exists it falls back to a page-tinted cinematic
+  gradient + grain (see `PAGE_TREATMENT` in that file) so each page still
+  reads as visually distinct rather than an obvious placeholder. Content
+  and choreography come from `src/data/heroContent.ts` and
+  `src/data/services.ts`.
+- **GlobalFooter** — one component, used everywhere, with the verified
+  address/phones/socials.
+- **Homepage** (`src/pages/Home.tsx`): hero → trust stats (bento grid) →
+  services grid → the pinned GSAP "Installation Journey" scroll-story →
+  gallery (filterable, lightbox) → pinned horizontal process track →
+  reviews (aggregate only — see note below) → locations → quote CTA.
+- **Service detail pages** (`/services/:slug`) — all ten services from the
+  brief, each rendering the same VideoHero with its own headline/copy and a
+  distinct gradient treatment, proving the "one system, unique hero per
+  page" requirement without hand-building ten bespoke hero components.
+- **Quote wizard** (`/quote`) — frontend-only, 5 condensed steps (what you
+  need → setup details → add-ons → contact → summary), no backend, no
+  invented pricing (shows "Quote Required" alongside the verified "$49
+  starting" claim).
+- **Services, Our Work, Locations, About, FAQ, Contact** pages — each with
+  its own hero entry in `heroContent.ts` and real section content.
+- Scroll progress bar, desktop-only custom cursor (auto-disabled on touch
+  and `prefers-reduced-motion`), `prefers-reduced-motion` respected globally.
 
-```bash
-npm run dev       # Start the development server
-npm run build     # Type-check and create a production build
-npm run lint      # Run Oxlint
-npm run preview   # Preview the production build
-```
+## What's intentionally left for you to drop in
 
-## Quote and CRM integration
+- **Real video/photography**: `VideoHero` and `Gallery` are wired to accept
+  real assets the moment they exist — drop files in `/public/media/` and
+  pass `videoSrc`/update the gallery `ITEMS` array. Nothing here fabricates
+  imagery.
+- **Real customer reviews**: the brief supplied only the aggregate
+  ("Excellent, Based on 507 reviews") with no verified individual review
+  text or names, so `Reviews.tsx` shows only that aggregate. It's built to
+  take a `reviews[]` array the moment real, attributable reviews are
+  provided — no placeholder quotes were invented.
+- **Flagged data** (`src/data/business.ts` → `FLAGGED_FOR_VERIFICATION`):
+  two conflicting service-area claims and two possibly-misspelled proper
+  nouns from the source site are carried over verbatim, not silently
+  resolved — confirm with the client before launch.
 
-The quote flow is a multi-step frontend wizard with validation, local draft persistence, loading states, error handling, and duplicate-submit protection.
+## Extending to the remaining cinematic hero pages
 
-The CRM backend is not included in this repository. Configure an API endpoint with:
-
-```env
-VITE_CRM_API_URL=https://your-crm.example.com
-```
-
-Leads are submitted to:
-
-```text
-${VITE_CRM_API_URL}/api/leads
-```
-
-Never commit credentials, API tokens, or private production URLs.
-
-## Design direction
-
-The visual system uses:
-
-- deep navy and ice-blue surfaces
-- editorial display typography
-- large confident headings
-- rounded floating navigation
-- readable dark hero overlays
-- service-specific imagery
-- compact glass-style dropdowns
-- restrained hover and scroll motion
-
-The navbar dropdowns are designed to open outside the navigation pill without resizing or reflowing the navbar.
-
-## Accessibility and motion
-
-- Keyboard focus states are provided for interactive controls.
-- Buttons and links use descriptive labels where needed.
-- Dropdowns support click, hover, Escape, and outside-click behavior.
-- Reduced-motion preferences are respected through `prefers-reduced-motion`.
-- Quote form feedback is exposed through visible UI states.
-
-## Production checklist
-
-- [ ] Run `npm run lint`
-- [ ] Run `npm run build`
-- [ ] Test desktop and mobile navigation
-- [ ] Test Services and Locations dropdowns
-- [ ] Test all eight service routes
-- [ ] Test all six location routes
-- [ ] Test footer links and opening links in a new tab
-- [ ] Test quote validation and submission states
-- [ ] Configure SPA fallback rewrites for pathname routes
-- [ ] Verify image and video licensing
-- [ ] Configure and verify CRM integration
-
-## Current status
-
-| Area | Status |
-| --- | --- |
-| Premium frontend | Complete |
-| Service pages | Complete |
-| Location pages | Complete |
-| Responsive layout | Implemented |
-| Navbar dropdowns | Implemented |
-| Quote UI | Implemented |
-| CRM backend | Not included |
-| Payment processing | Not included |
-| Production deployment | Requires hosting configuration |
-
-## Content policy
-
-Business claims, locations, phone numbers, reviews, pricing, and service availability should remain accurate and verified. This frontend must not imply that a lead, appointment, or payment was completed without confirmation from the underlying service.
-
-Third-party images and videos should be reviewed for production licensing and availability before launch.
-
-## License
-
-No open-source license has been selected. Until a license is added, all code, brand assets, copy, and business content remain the property of the project owner.
-
-<div align="center">
-
-### DTV Mounting
-
-Better picture. Better room.
-
-<a href="https://dtvmountingtx.com/">dtvmountingtx.com</a>
-
-</div>
+Per-service pages already prove the pattern. To add a fully bespoke page
+(e.g. a standalone Fireplace or TV Wall landing page beyond the shared
+service-detail template), copy `src/pages/ServiceDetail.tsx`, point it at
+the matching `heroContent` entry, and add whatever page-specific sections
+you want below the hero — the navbar, footer, tokens, and motion system
+require no changes.

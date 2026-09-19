@@ -1,0 +1,182 @@
+/* ============================================================
+   DTV MOUNTING — DESIGN TOKENS
+   One system, two themes. Every color/spacing value referenced
+   through a variable so the whole site can be retuned centrally.
+   ============================================================ */
+
+:root {
+  /* ---- Brand palette (source of truth) ---- */
+  --color-brand-blue: #2645e0;       /* royal blue — signal / CTA / accent */
+  --color-brand-blue-deep: #17307f;  /* pressed / gradients */
+  --color-brand-blue-light: #7c93ff; /* highlights on dark */
+  --color-black: #05070b;            /* near-black, cool undertone */
+  --color-ink: #0c1018;              /* raised dark surface */
+  --color-silver: #b7c0cc;           /* metallic accent, borders, hairlines */
+  --color-white: #f6f7f9;            /* off-white editorial ground */
+  --color-paper: #eef1f6;             /* foreground text in dark mode */
+
+  /* ---- Semantic tokens (dark theme = default brand mode) ---- */
+  --color-background: var(--color-black);
+  --color-surface: #0a0d14;
+  --color-surface-2: #10141d;
+  --color-text: #eef1f6;
+  --color-text-muted: #9aa3b2;
+  --color-muted: #9aa3b2;
+  --color-border: rgba(183, 192, 204, 0.14);
+  --color-border-strong: rgba(183, 192, 204, 0.28);
+
+  --glass-bg: rgba(10, 13, 20, 0.55);
+  --glass-bg-strong: rgba(6, 8, 13, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-sheen: rgba(255, 255, 255, 0.06);
+
+  --overlay-cinema: linear-gradient(
+    180deg,
+    rgba(5, 7, 11, 0.35) 0%,
+    rgba(5, 7, 11, 0.55) 55%,
+    rgba(5, 7, 11, 0.92) 100%
+  );
+
+  /* ---- Type ---- */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Space Grotesk", "Satoshi", "Segoe UI", sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+
+  /* ---- Radius / spacing scale ---- */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  --nav-height: 76px;
+  --container-pad: clamp(20px, 5vw, 64px);
+
+  /* ---- Motion ---- */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.32s;
+  --dur-med: 0.6s;
+  --dur-slow: 1.1s;
+}
+
+/* ---- Light theme override ---- */
+:root[data-theme="light"] {
+  --color-background: var(--color-white);
+  --color-surface: #ffffff;
+  --color-surface-2: #eef0f4;
+  --color-text: #0b0e14;
+  --color-paper: #0b0e14;
+  --color-text-muted: #565f6e;
+  --color-muted: #565f6e;
+  --color-border: rgba(11, 14, 20, 0.1);
+  --color-border-strong: rgba(11, 14, 20, 0.18);
+
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg-strong: rgba(255, 255, 255, 0.86);
+  --glass-border: rgba(11, 14, 20, 0.08);
+  --glass-sheen: rgba(255, 255, 255, 0.5);
+
+  --overlay-cinema: linear-gradient(
+    180deg,
+    rgba(5, 7, 11, 0.15) 0%,
+    rgba(5, 7, 11, 0.35) 55%,
+    rgba(5, 7, 11, 0.82) 100%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-background);
+  scroll-behavior: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background var(--dur-med) var(--ease-premium), color var(--dur-med) var(--ease-premium);
+}
+
+::selection {
+  background: var(--color-brand-blue);
+  color: white;
+}
+
+/* ---- Liquid / reeded glass surface, used by navbar + cards ---- */
+.glass-surface {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.glass-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--glass-sheen), transparent 40%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* reeded glass ribs, used sparingly as a decorative panel */
+.reeded-glass {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 7px
+  );
+}
+
+.chromatic-edge {
+  text-shadow: 0.6px 0 rgba(255, 60, 90, 0.35), -0.6px 0 rgba(60, 140, 255, 0.35);
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container-edge {
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  max-width: 1440px;
+  margin-inline: auto;
+}

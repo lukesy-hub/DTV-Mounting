@@ -1,24 +1,100 @@
-export type LocationSlug = 'austin' | 'houston' | 'san-antonio' | 'dallas' | 'florida' | 'atlanta'
+export type LocationPin = { label: string; lat: number; lng: number };
 
 export type Location = {
-  slug: LocationSlug
-  name: string
-  region: string
-  phone?: string
-  address?: string
-  image: string
-  mapQuery: string
-  briefing: string
-  services: string[]
-}
+  city: string;
+  slug: string;
+  phone?: string;
+  note?: string;
+  state: string;
+  center: [number, number];
+  zoom: number;
+  pins: LocationPin[];
+};
 
-export const locationCatalog: Location[] = [
-  { slug: 'austin', name: 'Austin', region: 'Central Texas', phone: '(737) 377-2980', mapQuery: 'Austin Texas', image: 'https://images.unsplash.com/photo-1494526585095-c417462?auto=format&fit=crop&w=2200&q=88', briefing: 'From downtown condos to Hill Country homes, our Austin team brings clean, careful installation to every kind of space.', services: ['Flat TV Mounting', 'Hide TV Wire', 'Soundbar Installation'] },
-  { slug: 'houston', name: 'Houston', region: 'Greater Houston', phone: '(346) 998-4437', mapQuery: 'Houston Texas', image: 'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=88', briefing: 'Our Houston service helps homeowners create comfortable, polished entertainment spaces across the greater metro area.', services: ['Same Day TV Mounting', 'Fireplace TV Mounting', 'TV Wall Installation'] },
-  { slug: 'san-antonio', name: 'San Antonio', region: 'South Texas', phone: '(737) 377-2980', mapQuery: 'San Antonio Texas', image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=88', briefing: 'In San Antonio, we combine practical technical planning with the thoughtful finish your home deserves.', services: ['Flat TV Mounting', 'TV Dismounting', 'Gaming Console Mounting'] },
-  { slug: 'dallas', name: 'Dallas', region: 'North Texas', phone: '(469) 436-5600', address: '15150 Preston Road, STE 300, Dallas, TX 75248', mapQuery: '15150 Preston Road Dallas TX 75248', image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=88', briefing: 'Our Dallas headquarters serves homeowners who want a precise, reliable installation with a premium finish.', services: ['Flat TV Mounting', 'Fireplace TV Mounting', 'TV Wall Installation'] },
-  { slug: 'florida', name: 'Florida', region: 'Florida service area', mapQuery: 'Florida, USA', image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=88', briefing: 'DTV Mounting extends its installation standard to select Florida service areas. Contact us to confirm availability near you.', services: ['Flat TV Mounting', 'Hide TV Wire', 'Soundbar Installation'] },
-  { slug: 'atlanta', name: 'Atlanta', region: 'Metro Atlanta', mapQuery: 'Atlanta Georgia', image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2200&q=88', briefing: 'For select Atlanta-area projects, our team brings the same organized process and clean visual finish to your entertainment space.', services: ['Flat TV Mounting', 'TV Wall Installation', 'LED Strip Light Installation'] },
-]
+export const locations: Location[] = [
+  {
+    city: "Dallas",
+    slug: "dallas",
+    phone: "(469) 436-5600",
+    note: "Headquarters — 15150 Preston Road, STE 300",
+    state: "Texas",
+    center: [32.93, -96.8],
+    zoom: 10,
+    pins: [
+      { label: "Preston Hollow", lat: 32.89, lng: -96.81 },
+      { label: "Addison", lat: 32.96, lng: -96.83 },
+      { label: "Las Colinas", lat: 32.88, lng: -96.96 },
+      { label: "Lake Highlands", lat: 32.92, lng: -96.72 },
+    ],
+  },
+  {
+    city: "Houston",
+    slug: "houston",
+    phone: "(346) 998-4437",
+    state: "Texas",
+    center: [29.76, -95.37],
+    zoom: 10,
+    pins: [
+      { label: "The Heights", lat: 29.8, lng: -95.4 },
+      { label: "Westchase", lat: 29.74, lng: -95.58 },
+      { label: "Sugar Land", lat: 29.62, lng: -95.63 },
+      { label: "Kingwood", lat: 30.05, lng: -95.18 },
+    ],
+  },
+  {
+    city: "Austin",
+    slug: "austin",
+    phone: "(737) 377-2980",
+    state: "Texas",
+    center: [30.27, -97.74],
+    zoom: 10,
+    pins: [
+      { label: "North Austin", lat: 30.39, lng: -97.72 },
+      { label: "Westlake", lat: 30.30, lng: -97.80 },
+      { label: "South Congress", lat: 30.24, lng: -97.75 },
+      { label: "Round Rock", lat: 30.51, lng: -97.68 },
+    ],
+  },
+  {
+    city: "San Antonio",
+    slug: "san-antonio",
+    phone: "(737) 377-2980",
+    state: "Texas",
+    center: [29.42, -98.49],
+    zoom: 10,
+    pins: [
+      { label: "Alamo Heights", lat: 29.49, lng: -98.46 },
+      { label: "Stone Oak", lat: 29.65, lng: -98.49 },
+      { label: "Southtown", lat: 29.41, lng: -98.49 },
+      { label: "Leon Valley", lat: 29.50, lng: -98.61 },
+    ],
+  },
+  {
+    city: "Florida",
+    slug: "florida",
+    state: "Florida",
+    center: [27.66, -81.52],
+    zoom: 6,
+    pins: [
+      { label: "Orlando", lat: 28.54, lng: -81.38 },
+      { label: "Tampa", lat: 27.95, lng: -82.46 },
+      { label: "Jacksonville", lat: 30.33, lng: -81.66 },
+      { label: "Miami", lat: 25.76, lng: -80.19 },
+    ],
+  },
+  {
+    city: "Atlanta",
+    slug: "atlanta",
+    state: "Georgia",
+    center: [33.75, -84.39],
+    zoom: 9,
+    pins: [
+      { label: "Midtown", lat: 33.78, lng: -84.39 },
+      { label: "Buckhead", lat: 33.85, lng: -84.37 },
+      { label: "Decatur", lat: 33.77, lng: -84.30 },
+      { label: "Sandy Springs", lat: 33.93, lng: -84.38 },
+    ],
+  },
+];
 
-export const locationBySlug = (slug: string) => locationCatalog.find((location) => location.slug === slug)
+export const getLocationBySlug = (slug: string) => locations.find((location) => location.slug === slug);

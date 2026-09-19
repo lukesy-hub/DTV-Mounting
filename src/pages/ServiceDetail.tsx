@@ -1,18 +1,53 @@
-import type { Service } from '../data/services'
+import { useParams, Navigate } from "react-router-dom";
+import { VideoHero } from "@/components/Hero/VideoHero";
+import { QuoteCTA } from "@/components/QuoteCTA/QuoteCTA";
+import { getServiceBySlug, services } from "@/data/services";
 
-type Props = { service: Service; onQuote: () => void; onBack: () => void }
+export function ServiceDetail() {
+  const { slug } = useParams();
+  const service = getServiceBySlug(slug ?? "");
 
-export default function ServiceDetail({ service, onQuote, onBack }: Props) {
+  if (!service) return <Navigate to="/" replace />;
+
   return (
     <>
-      <section className="service-detail-hero">
-        <div className="service-detail-image-layer" style={{ backgroundImage: `url(${service.image})` }} /><div className="service-detail-overlay" /><div><button className="back-link" onClick={onBack}>← All services</button><p className="eyebrow">{service.eyebrow}</p><h1>{service.title}</h1><p>{service.description}</p><button className="button button--light" onClick={onQuote}>Plan this install <span aria-hidden="true">↗</span></button></div>
+      <VideoHero
+        pageType={service.slug}
+        eyebrow={`Service · ${service.number}`}
+        headline={service.heroHeadline}
+        support={service.heroSupport}
+        primaryCta={{ label: service.heroCta, to: "/quote" }}
+        align="left"
+      />
+
+      <section className="container-edge py-24">
+        <div className="grid gap-10 lg:grid-cols-3">
+          <div className="lg:col-span-2">
+            <span className="eyebrow">About This Service</span>
+            <h2 className="mt-3 font-display-serif text-[clamp(1.8rem,3vw,2.6rem)] text-paper">
+              {service.title}
+            </h2>
+            <p className="mt-4 max-w-xl text-muted">{service.shortDescription}</p>
+          </div>
+          <div className="glass-surface rounded-lg p-8">
+            <h3 className="text-sm text-muted">Other Services</h3>
+            <ul className="mt-4 space-y-3">
+              {services
+                .filter((s) => s.slug !== service.slug)
+                .slice(0, 5)
+                .map((s) => (
+                  <li key={s.slug}>
+                    <a href={`/services/${s.slug}`} className="text-paper/85 hover:text-blue-light">
+                      {s.number} — {s.title}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </div>
       </section>
-      <section className="section service-detail-content">
-        <div><p className="eyebrow">The DTV standard</p><h2>Made to feel<br /><em>effortless.</em></h2></div>
-        <div><p className="lead">{service.details}</p><ul>{service.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul><button className="button button--dark" onClick={onQuote}>Get your quote <span aria-hidden="true">↗</span></button></div>
-      </section>
-      <section className="service-detail-image" style={{ backgroundImage: `url(${service.image})` }}><div><p className="eyebrow">Built around your home</p><h2>Good work<br /><em>disappears.</em></h2></div></section>
+
+      <QuoteCTA />
     </>
-  )
+  );
 }
