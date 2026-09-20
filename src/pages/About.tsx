@@ -15,7 +15,7 @@ export function About() {
     <>
       <PageHero eyebrow={h.eyebrow} headline={h.headline} support={h.support} crumbs={[{ label: "Home", to: "/" }, { label: "About" }]} actions={<Button to="/quote">Get a free quote</Button>} />
       <section className="container-edge grid gap-10 py-20 lg:grid-cols-2 lg:gap-20">
-        <div><span className="eyebrow">Why DTV Mounting</span><h2 className="mt-4 text-[clamp(1.9rem,3.6vw,2.9rem)]">Two decades of getting it <span className="serif-em">right the first time.</span></h2></div>
+        <div><span className="eyebrow">Why DTV Mounting</span><h2 className="mt-4 text-h2">Two decades of getting it <span className="serif-em">right the first time.</span></h2></div>
         <p className="text-lg text-muted">{business.claims.experience} and {business.claims.tvsInstalled.toLowerCase()}, backed by a {business.claims.warranty.toLowerCase()}, a {business.claims.priceMatch.toLowerCase()}, and a {business.claims.satisfaction.toLowerCase()}. {business.claims.licensed}.</p>
       </section>
       <TrustBar />

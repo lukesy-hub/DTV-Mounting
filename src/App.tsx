@@ -1,11 +1,13 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { MotionConfig, motion } from "framer-motion";
 
 import { ThemeProvider } from "@/hooks/useTheme";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { initSmoothScroll, destroySmoothScroll } from "@/lib/lenis";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { StickyCta } from "@/components/layout/StickyCta";
 import { ScrollProgress } from "@/components/ScrollProgress/ScrollProgress";
 import { Home } from "@/pages/Home";
 
@@ -30,6 +32,7 @@ function ScrollToTop() {
 
 export default function App() {
   const reduced = useReducedMotion();
+  const { pathname } = useLocation();
   useEffect(() => {
     if (reduced) return;
     initSmoothScroll();
@@ -37,12 +40,14 @@ export default function App() {
   }, [reduced]);
 
   return (
+    <MotionConfig reducedMotion="user">
     <ThemeProvider>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-brand-btn focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
       <ScrollToTop />
       <ScrollProgress />
       <Navbar />
       <main id="main">
+        <motion.div key={pathname} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}>
         <Suspense fallback={<div className="min-h-[60vh]" aria-busy="true" />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -58,8 +63,11 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        </motion.div>
       </main>
       <Footer />
+      <StickyCta />
     </ThemeProvider>
+    </MotionConfig>
   );
 }

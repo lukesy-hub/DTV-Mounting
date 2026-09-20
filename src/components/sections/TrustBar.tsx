@@ -1,18 +1,19 @@
 import { business } from "@/data/business";
 import { Check } from "@/components/ui/Icons";
+import { CountUp } from "@/components/ui/CountUp";
 import { Reveal } from "@/components/ui/Reveal";
 
-const stats = [["15,000+", "TVs installed"], ["20+", "Years of experience"], ["10-year", "No-fall warranty"], ["100%", "Satisfaction guarantee"]];
+const stats = [{ to: 15000, suffix: "+", label: "TVs installed" }, { to: 20, suffix: "+", label: "Years of experience" }, { to: 10, suffix: "-year", label: "No-fall warranty" }, { to: 100, suffix: "%", label: "Satisfaction guarantee" }];
 
 export function TrustBar() {
   return (
     <section className="border-b border-line bg-surface">
       <Reveal className="container-edge py-12">
         <dl className="grid grid-cols-2 gap-y-8 lg:grid-cols-4">
-          {stats.map(([v, l], i) => (
-            <div key={l} className={i > 0 ? "lg:border-l lg:border-line lg:pl-8" : ""}>
-              <dt className="font-serif text-[clamp(2rem,3.4vw,3rem)] font-medium leading-none tracking-tight">{v}</dt>
-              <dd className="mt-2 text-sm font-semibold text-muted">{l}</dd>
+          {stats.map((s, i) => (
+            <div key={s.label} className={i > 0 ? "lg:border-l lg:border-line lg:pl-8" : ""}>
+              <dt className="font-serif text-h2 font-medium leading-none tracking-tight"><CountUp to={s.to} suffix={s.suffix} /></dt>
+              <dd className="mt-2 text-sm font-semibold text-muted">{s.label}</dd>
             </div>
           ))}
         </dl>

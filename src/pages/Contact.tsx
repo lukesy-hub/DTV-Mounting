@@ -37,9 +37,9 @@ export function Contact() {
       <PageHero eyebrow={h.eyebrow} headline={h.headline} support={h.support} crumbs={[{ label: "Home", to: "/" }, { label: "Contact" }]} />
       <section className="container-edge grid gap-8 py-20 lg:grid-cols-[1fr_1.2fr]">
         <div className="rounded-lg border border-line bg-surface p-8">
-          <h2 className="text-sm font-extrabold uppercase tracking-[.12em] text-muted">Headquarters</h2>
+          <h2 className="text-sm font-bold text-muted">Headquarters</h2>
           <p className="mt-3 font-semibold">{business.address.line1}<br />{business.address.line2}</p>
-          <h2 className="mt-10 text-sm font-extrabold uppercase tracking-[.12em] text-muted">Call your local team</h2>
+          <h2 className="mt-10 text-sm font-bold text-muted">Call your local team</h2>
           <ul className="mt-4 divide-y divide-line">
             {locations.map((l) => <li key={l.city} className="flex items-center justify-between py-3 text-sm font-semibold"><span>{l.city}</span>{l.phone ? <a href={tel(l.phone)} className="inline-flex items-center gap-2 text-brand hover:underline"><Phone width={15} height={15} />{l.phone}</a> : <a href="/quote" className="text-brand hover:underline">Request a quote</a>}</li>)}
           </ul>

@@ -36,7 +36,7 @@ export function LocationDetail() {
             <p className="mt-4 text-xs font-semibold text-muted">{business.claims.warranty}</p>
           </div>
           <div className="rounded-lg border border-line bg-surface p-7">
-            <h3 className="text-sm font-extrabold uppercase tracking-[.12em] text-muted">Explore our services</h3>
+            <h3 className="text-sm font-bold text-muted">Explore our services</h3>
             <ul className="mt-4 divide-y divide-line">{services.map((s) => <li key={s.slug}><Link to={`/services/${s.slug}`} className="block py-2.5 text-sm font-semibold hover:text-brand">{s.title}</Link></li>)}</ul>
           </div>
         </aside>

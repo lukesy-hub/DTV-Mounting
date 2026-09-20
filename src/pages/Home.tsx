@@ -4,6 +4,9 @@ import { Services } from "@/components/sections/Services";
 import { InstallSteps } from "@/components/sections/InstallSteps";
 import { Gallery } from "@/components/sections/Gallery";
 import { Process } from "@/components/sections/Process";
+import { Marquee } from "@/components/sections/Marquee";
+import { Statement } from "@/components/sections/Statement";
+import { BeforeAfter } from "@/components/sections/BeforeAfter";
 import { Reviews } from "@/components/sections/Reviews";
 import { Locations } from "@/components/sections/Locations";
 import { QuoteCTA } from "@/components/sections/QuoteCTA";
@@ -18,8 +21,11 @@ export function Home() {
     <>
       <Hero {...heroContent.home} />
       <TrustBar />
+      <Marquee />
       <Services />
+      <Statement />
       <InstallSteps />
+      <BeforeAfter />
       <section className="container-edge pt-20 lg:pt-24">
         <SectionHead eyebrow="Our work" title="Real installs," em="real homes.">A look at DTV Mounting installations across homes and businesses.</SectionHead>
       </section>

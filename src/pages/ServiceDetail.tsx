@@ -22,7 +22,7 @@ export function ServiceDetail() {
       <section className="container-edge grid gap-12 py-20 lg:grid-cols-[1.6fr_1fr]">
         <div>
           <span className="eyebrow">About this service</span>
-          <h2 className="mt-4 text-[clamp(1.8rem,3vw,2.5rem)]">{service.title}</h2>
+          <h2 className="mt-4 text-h2">{service.title}</h2>
           <p className="mt-5 max-w-2xl text-lg text-muted">{service.shortDescription}</p>
           <h3 className="mt-12 text-xl">With every DTV Mounting install</h3>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">{included.map((i) => <li key={i} className="flex items-start gap-3 rounded-lg border border-line bg-surface p-4 text-sm font-semibold"><Check className="mt-0.5 shrink-0 text-brand" />{i}</li>)}</ul>
@@ -34,7 +34,7 @@ export function ServiceDetail() {
             <div className="mt-6 grid gap-3"><Button to="/quote" variant="light">Start your quote</Button><Button href={tel(business.phones.dallas)} variant="outline-light"><Phone />{business.phones.dallas}</Button></div>
           </div>
           <div className="rounded-lg border border-line bg-surface p-7">
-            <h3 className="text-sm font-extrabold uppercase tracking-[.12em] text-muted">Other services</h3>
+            <h3 className="text-sm font-bold text-muted">Other services</h3>
             <ul className="mt-4 divide-y divide-line">{services.filter((s) => s.slug !== service.slug).map((s) => <li key={s.slug}><Link to={`/services/${s.slug}`} className="flex justify-between py-3 text-sm font-semibold hover:text-brand"><span>{s.title}</span><span className="text-muted">{s.number}</span></Link></li>)}</ul>
           </div>
         </aside>

@@ -18,9 +18,9 @@ export function Faq() {
         <div className="mx-auto max-w-3xl divide-y divide-line border-y border-line">
           {faqs.map((f, i) => (
             <div key={f.q}>
-              <h3><button onClick={() => setOpen(open === i ? null : i)} aria-expanded={open === i} className="flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-bold">
+              <h2><button onClick={() => setOpen(open === i ? null : i)} aria-expanded={open === i} className="flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-bold">
                 {f.q}<Plus className={`shrink-0 text-brand transition-transform ${open === i ? "rotate-45" : ""}`} />
-              </button></h3>
+              </button></h2>
               <AnimatePresence initial={false}>
                 {open === i && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden"><p className="pb-6 text-muted">{f.a}</p></motion.div>}
               </AnimatePresence>

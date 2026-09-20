@@ -16,7 +16,7 @@ export function Reviews() {
       <Reveal className="container-edge grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-center">
         <div>
           <span className="eyebrow !text-[#9db0ff]">Customer reviews</span>
-          <p className="mt-6 font-serif text-[clamp(3.2rem,7vw,5.5rem)] font-medium italic leading-none">{business.reviewSummary.label}</p>
+          <h2 className="mt-6 font-serif text-display font-medium italic leading-none">{business.reviewSummary.label}</h2>
           <p className="mt-4 text-on-navy-muted">{business.reviewSummary.basis}</p>
         </div>
         <ul className="grid gap-px overflow-hidden rounded-lg bg-white/10 sm:grid-cols-2">

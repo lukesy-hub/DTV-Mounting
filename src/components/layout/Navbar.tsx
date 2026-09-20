@@ -36,13 +36,23 @@ export function Navbar() {
   const svc = services.map((s) => ({ label: s.title, to: `/services/${s.slug}` }));
   const loc = locations.map((l) => ({ label: `${l.city}, ${l.state}`, to: `/locations/${l.slug}` }));
   const phones: [string, string][] = [["Dallas", business.phones.dallas], ["Houston", business.phones.houston], ["Austin / San Antonio", business.phones.austinSanAntonio]];
+  const [region, setRegion] = useState(() => { try { return localStorage.getItem("dtv-region") ?? "Dallas"; } catch { return "Dallas"; } });
+  const [regionName, regionPhone] = phones.find((p) => p[0] === region) ?? phones[0];
+  const pick = (v: string) => { setRegion(v); try { localStorage.setItem("dtv-region", v); } catch { /* storage unavailable */ } };
 
   return (
     <>
       <div className="hidden bg-navy text-on-navy-muted md:block">
         <div className="container-edge flex h-10 items-center justify-between text-xs font-medium">
           <span>{business.claims.licensed} · {business.claims.warranty}</span>
-          <div className="flex gap-6">{phones.map(([n, p]) => <a key={n} href={tel(p)} className="hover:text-white">{n} <span className="text-on-navy">{p}</span></a>)}</div>
+          <div className="flex items-center gap-3">
+            <label className="flex items-center gap-2">Your area
+              <select value={regionName} onChange={(e) => pick(e.target.value)} className="rounded border border-white/20 bg-transparent py-0.5 pl-2 pr-1 text-on-navy focus:border-white/60">
+                {phones.map(([n]) => <option key={n} value={n} className="text-black">{n}</option>)}
+              </select>
+            </label>
+            <a href={tel(regionPhone)} className="inline-flex items-center gap-1.5 font-bold text-white hover:underline"><Phone width={14} height={14} />{regionPhone}</a>
+          </div>
         </div>
       </div>
       <header className={clsx("sticky top-0 z-50 border-b bg-surface transition-shadow", scrolled ? "border-line shadow-card" : "border-transparent")}>
@@ -79,7 +89,7 @@ export function Navbar() {
             {LINKS.map((l) => <Link key={l.to} to={l.to} className="block border-b border-line py-4 text-lg font-bold">{l.label}</Link>)}
             <div className="mt-8 grid gap-3">
               <Button to="/quote" className="w-full">Get a free quote</Button>
-              <Button href={tel(business.phones.dallas)} variant="outline" className="w-full"><Phone />Call {business.phones.dallas}</Button>
+              <Button href={tel(regionPhone)} variant="outline" className="w-full"><Phone />Call {regionName}: {regionPhone}</Button>
             </div>
           </nav>
         </div>
