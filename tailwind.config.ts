@@ -2,35 +2,17 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
-  darkMode: ["class", '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
-        ink: "var(--color-ink)",
-        black: "var(--color-black)",
-        blue: {
-          DEFAULT: "var(--color-brand-blue)",
-          deep: "var(--color-brand-blue-deep)",
-          light: "var(--color-brand-blue-light)",
-        },
-        silver: "var(--color-silver)",
-        paper: "var(--color-paper)",
-        muted: "var(--color-muted)",
-        border: "var(--color-border)",
-        surface: "var(--color-surface)",
-        surface2: "var(--color-surface-2)",
+        bg: "var(--bg)", surface: "var(--surface)", surface2: "var(--surface-2)", fg: "var(--fg)", muted: "var(--muted)",
+        line: "var(--line)", "line-strong": "var(--line-strong)",
+        brand: { DEFAULT: "var(--brand)", deep: "var(--brand-deep)", soft: "var(--brand-soft)", btn: "var(--brand-btn)" },
+        navy: "var(--navy)", "on-navy": "var(--on-navy)", "on-navy-muted": "var(--on-navy-muted)",
       },
-      fontFamily: {
-        display: ["var(--font-display)"],
-        sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
-      },
-      maxWidth: {
-        content: "1440px",
-      },
-      backdropBlur: {
-        glass: "20px",
-      },
+      fontFamily: { sans: ["var(--font-sans)"], serif: ["var(--font-serif)"] },
+      borderRadius: { DEFAULT: "var(--radius)", lg: "var(--radius-lg)" },
+      boxShadow: { card: "var(--shadow)" },
     },
   },
   plugins: [],

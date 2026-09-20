@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Location } from "@/data/locations";
+import type { Location } from "@/data/locations";
 
 export function LocationMap({ location }: { location: Location }) {
   const mapElement = useRef<HTMLDivElement>(null);
