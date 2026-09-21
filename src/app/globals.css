@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+/* =========================================================
+   DTV MOUNTING — DESIGN TOKENS
+   Brand source: DTV logo
+   ========================================================= */
+
+:root {
+  /* Brand */
+  --dtv-blue: #2a358f;
+  --dtv-blue-deep: #1b236d;
+  --dtv-blue-soft: #5360c2;
+
+  --dtv-black: #07060b;
+  --dtv-charcoal: #111318;
+  --dtv-gray: #808080;
+  --dtv-gray-light: #c7c9ce;
+
+  --dtv-white: #f7f8fa;
+
+  /* Light theme */
+  --background: #f5f6f8;
+  --surface: #ffffff;
+  --surface-soft: #eceef2;
+
+  --foreground: #111318;
+  --foreground-muted: #636771;
+
+  --border: rgba(17, 19, 24, 0.1);
+
+  /* Effects */
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.72);
+
+  /* Brand gradients */
+  --dtv-gradient: linear-gradient(
+    135deg,
+    var(--dtv-gray) 0%,
+    var(--dtv-blue) 55%,
+    var(--dtv-blue-deep) 100%
+  );
+
+  --dtv-gradient-dark: linear-gradient(
+    135deg,
+    #727780 0%,
+    var(--dtv-blue) 48%,
+    #10133c 100%
+  );
+
+  /* Typography */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+.dark {
+  /* Dark theme */
+  --background: #090a0e;
+  --surface: #111318;
+  --surface-soft: #181b22;
+
+  --foreground: #f7f8fa;
+  --foreground-muted: #9a9da6;
+
+  --border: rgba(255, 255, 255, 0.1);
+
+  --glass-bg: rgba(17, 19, 24, 0.58);
+  --glass-border: rgba(255, 255, 255, 0.13);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: var(--font-body);
+
+  overflow-x: hidden;
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--dtv-blue);
+  color: white;
+}
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+   ========================================================= */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--dtv-blue) var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--dtv-gray) 0%,
+    var(--dtv-blue) 55%,
+    var(--dtv-blue-deep) 100%
+  );
+
+  border-radius: 999px;
+
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--dtv-blue-soft) 0%,
+    var(--dtv-blue) 55%,
+    var(--dtv-blue-deep) 100%
+  );
+}
+
+/* =========================================================
+   DISPLAY TYPE
+   ========================================================= */
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.display-heading {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+  font-weight: 600;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  font-weight: 600;
+}
+
+/* =========================================================
+   GLASS
+   ========================================================= */
+
+.dtv-glass {
+  background: var(--glass-bg);
+
+  border: 1px solid var(--glass-border);
+
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+
+  box-shadow:
+    0 18px 70px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   BRAND GRADIENT TEXT
+   ========================================================= */
+
+.dtv-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #7b7f87 0%,
+    var(--dtv-blue) 52%,
+    var(--dtv-blue-deep) 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.chromatic-text {
+  background: linear-gradient(
+    110deg,
+    #f7f8fa 8%,
+    var(--dtv-blue-soft) 48%,
+    #9ea5ff 92%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.chromatic-field {
+  position: relative;
+  isolation: isolate;
+}
+
+.chromatic-field::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.32;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(83, 96, 194, 0.1), transparent 28%),
+    radial-gradient(
+      circle at 92% 42%,
+      rgba(42, 53, 143, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 48%,
+      transparent 100%
+    );
+}
+
+.nav-item {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.8);
+  transition:
+    color 300ms ease,
+    text-shadow 300ms ease;
+}
+
+.nav-item::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.35rem;
+  left: 0;
+  height: 2px;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  border-radius: 999px;
+  background: var(--dtv-blue-soft);
+  box-shadow: 0 0 12px rgba(83, 96, 194, 0.95);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-item:hover,
+.nav-item.is-active {
+  color: var(--foreground);
+  text-shadow:
+    0 0 8px rgba(158, 165, 255, 0.9),
+    0 0 22px rgba(83, 96, 194, 0.8),
+    0 1px 14px rgba(0, 0, 0, 0.9);
+}
+
+.nav-item:hover::after,
+.nav-item.is-active::after {
+  transform: scaleX(1);
+}
+
+.navbar-over-hero .nav-item,
+.navbar-over-hero .nav-item:hover,
+.navbar-over-hero .nav-item.is-active {
+  color: #fff;
+}
+
+/* Reveal each major page band once when it enters the viewport. */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 850ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* =========================================================
+   PERFORMANCE / ACCESSIBILITY
+   ========================================================= */
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal,
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
